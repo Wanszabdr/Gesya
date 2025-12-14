@@ -47,6 +47,12 @@
 </head>
 
 <body>
+
+    <!-- AUDIO (DITAMBAHKAN, TIDAK MENGUBAH STRUKTUR) -->
+    <audio id="bgm" loop>
+        <source src="lagu-kita.mp3" type="audio/mpeg">
+    </audio>
+
     <canvas id="canvas-matrix" style="position:absolute;width:100%;height:100%;z-index:8888"></canvas>
     <!-- <canvas id="canvas" style="position:absolute;width:100%;height:100%;z-index:8888"></canvas> -->
     <canvas style="position:absolute;width:100%;height:100%;z-index:9999" class="canvas"></canvas>
@@ -66,9 +72,21 @@
     <script src="js/index.js"></script>
     <script src="js/heart.js"></script>
     <script src="js/matrix.js"></script>
+
     <div class="namebox" style="opacity: 0;">
-        <h1 style="font-family: 'Comic Sans MS', cursive, sans-serif;">&#10084;&#65039;Gesya Nanda Putri</h1>
+        <h1 style="font-family: 'Comic Sans MS', cursive, sans-serif;">
+            &#10084;&#65039;Gesya Nanda Putri
+        </h1>
     </div>
+
+    <!-- SCRIPT MUSIK (DITAMBAHKAN SAJA) -->
+    <script>
+        // autoplay setelah klik pertama (aturan browser)
+        document.addEventListener("click", function () {
+            const music = document.getElementById("bgm");
+            music.play();
+        }, { once: true });
+    </script>
 
 </body>
 
