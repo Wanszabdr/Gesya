@@ -7,8 +7,7 @@
     <meta name="language" content="zh-CN">
     <meta name="github" content="https://github.com/sun0225SUN/Awesome-Love-Code">
     <meta name="describe" content="收集不易，您的star是我坚持的动力，同时也欢迎各位PR哦! ">
-    <link rel="icon" type="image/x-icon"
-        href="https://cdn.jsdelivr.net/gh/sun0225SUN/photos/img/20210715233345.png">
+    <link rel="icon" type="image/x-icon" href="https://cdn.jsdelivr.net/gh/sun0225SUN/photos/img/20210715233345.png">
 
     <style>
         html,
@@ -30,7 +29,7 @@
             color: #ff5ba5;
             position: absolute;
             z-index: 9999;
-            top: 62%;
+            top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
             transition: 1s;
@@ -38,63 +37,53 @@
 
         .namebox h1 {
             margin: 0 auto;
-            font-family: 'Comic Sans MS', cursive, sans-serif;
-        }
-
-        /* FOTO */
-        .photo-box {
-            position: absolute;
-            top: 45%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            z-index: 9000;
-        }
-
-        .photo-box img {
-            width: 220px;
-            height: 220px;
-            object-fit: cover;
-            border-radius: 50%;
-            border: 4px solid #ff5ba5;
-            box-shadow: 0 0 25px rgba(255, 91, 165, 0.9);
         }
     </style>
+
 </head>
 
 <body>
+    <canvas id="canvas-matrix" style="position:absolute;width:100%;height:100%;z-index:8888"></canvas>
+    <canvas style="position:absolute;width:100%;height:100%;z-index:9999" class="canvas"></canvas>
 
-    <canvas id="canvas-matrix" style="z-index:8888"></canvas>
-    <canvas class="canvas" style="z-index:9999"></canvas>
-    <canvas id="pinkboard" style="z-index:8888"></canvas>
-
-    <!-- FOTO -->
-    <div class="photo-box">
-        <img src="foto.jpg" alt="Foto Gesya">
+    <div class="overlay">
+        <div class="tabs">
+            <div class="tabs-labels">
+                <span class="tabs-label">Commands</span>
+                <span class="tabs-label">Info</span>
+                <span class="tabs-label">Share</span>
+            </div>
+            <div class="tabs-panels">
+                <ul class="tabs-panel commands"></ul>
+            </div>
+        </div>
     </div>
 
-    <!-- NAMA -->
-    <div class="namebox" style="opacity: 1;">
-        <h1>❤️ Gesya Nanda Putri</h1>
-    </div>
-
-    <!-- BACKGROUND MUSIC -->
-    <audio id="bg-music" autoplay loop muted>
-        <source src="lagu.mp3" type="audio/mpeg">
-    </audio>
-
-    <script>
-        document.addEventListener("click", function () {
-            const music = document.getElementById("bg-music");
-            music.muted = false;
-            music.volume = 0.7;
-            music.play();
-        }, { once: true });
-    </script>
+    <canvas id="pinkboard" style="position:absolute;width:100%;height:100%;z-index:8888"></canvas>
 
     <script src="js/index.js"></script>
     <script src="js/heart.js"></script>
     <script src="js/matrix.js"></script>
 
-</body>
+    <div class="namebox" style="opacity: 0;">
+        <h1 style="font-family: 'Comic Sans MS', cursive, sans-serif;">
+            &#10084;&#65039;Gesya Nanda Putri
+        </h1>
+    </div>
 
+  <!-- BACKGROUND MUSIC -->
+<audio id="bg-music" autoplay loop muted>
+    <source src="lagu.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+    document.addEventListener("click", function () {
+        const music = document.getElementById("bg-music");
+        music.muted = false;
+        music.volume = 0.7;
+        music.play();
+    }, { once: true });
+</script>
+
+</body>
 </html>
