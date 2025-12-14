@@ -71,21 +71,19 @@
         </h1>
     </div>
 
-    <!-- ===== BACKGROUND MUSIC ===== -->
-    <audio id="bg-music" loop>
-        <source src="lagu.mp3" type="audio/mpeg">
-        Browser tidak mendukung audio.
-    </audio>
+  <!-- BACKGROUND MUSIC -->
+<audio id="bg-music" autoplay loop muted>
+    <source src="lagu.mp3" type="audio/mpeg">
+</audio>
 
-    <script>
-        // Autoplay fix (Chrome, Android, iOS)
-        document.addEventListener("click", function () {
-            const music = document.getElementById("bg-music");
-            music.volume = 0.7;
-            music.play();
-        }, { once: true });
-    </script>
-    <!-- ============================ -->
+<script>
+    document.addEventListener("click", function () {
+        const music = document.getElementById("bg-music");
+        music.muted = false;
+        music.volume = 0.7;
+        music.play();
+    }, { once: true });
+</script>
 
 </body>
 </html>
