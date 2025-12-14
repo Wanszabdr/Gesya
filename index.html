@@ -69,7 +69,20 @@
     <div class="namebox" style="opacity: 0;">
         <h1 style="font-family: 'Comic Sans MS', cursive, sans-serif;">&#10084;&#65039;Gesya Nanda Putri</h1>
     </div>
+    <script>
+  function toggleMusic() {
+    const music = document.getElementById("bgm");
+    if (music.paused) {
+      music.play();
+    } else {
+      music.pause();
+    }
+  }
+</script>
 
-</body>
+</body><audio id="bgm" autoplay loop>
+  <source src="lagu-kita.mp3" type="audio/mpeg">
+  Browser kamu tidak mendukung audio.
+</audio>
 
 </html>
