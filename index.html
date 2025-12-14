@@ -1,17 +1,18 @@
 <!doctype html>
-<html lang="id">
+<html>
+
 <head>
     <meta charset="utf-8">
-    <title>Word Love Code</title>
+    <title>Untuk Gesya</title>
     <meta name="language" content="zh-CN">
     <meta name="github" content="https://github.com/sun0225SUN/Awesome-Love-Code">
     <meta name="describe" content="收集不易，您的star是我坚持的动力，同时也欢迎各位PR哦! ">
     <link rel="icon" type="image/x-icon" href="https://cdn.jsdelivr.net/gh/sun0225SUN/photos/img/20210715233345.png">
 
     <style>
-    <style>
-        html, body {
-            margin: 0;
+        html,
+        body {
+            margin: 0px;
             width: 100%;
             height: 100%;
             overflow: hidden;
@@ -30,71 +31,45 @@
             z-index: 9999;
             top: 50%;
             left: 50%;
+            -webkit-transform: translate(-50%, -50%);
+            -moz-transform: translate(-50%, -50%);
+            -ms-transform: translate(-50%, -50%);
+            -o-transform: translate(-50%, -50%);
             transform: translate(-50%, -50%);
             transition: 1s;
         }
 
         .namebox h1 {
-            margin: 0;
-            font-family: 'Comic Sans MS', cursive, sans-serif;
-        }
-
-        .music-btn {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            z-index: 10000;
-            padding: 12px 20px;
-            border-radius: 25px;
-            border: none;
-            background: #ff5ba5;
-            color: white;
-            font-size: 14px;
-            cursor: pointer;
+            margin: 0 auto;
         }
     </style>
+
 </head>
 
 <body>
+    <canvas id="canvas-matrix" style="position:absolute;width:100%;height:100%;z-index:8888"></canvas>
+    <!-- <canvas id="canvas" style="position:absolute;width:100%;height:100%;z-index:8888"></canvas> -->
+    <canvas style="position:absolute;width:100%;height:100%;z-index:9999" class="canvas"></canvas>
+    <div class="overlay">
+        <div class="tabs">
+            <div class="tabs-labels"><span class="tabs-label">Commands</span><span class="tabs-label">Info</span><span
+                    class="tabs-label">Share</span></div>
 
-    <!-- AUDIO -->
-    <audio id="bgm" loop>
-        <source src="lagu-kita.mp3" type="audio/mpeg">
-    </audio>
-
-    <!-- TOMBOL MUSIK -->
-    <button class="music-btn" onclick="toggleMusic()">🎵 Musik</button>
-
-    <!-- CANVAS -->
-    <canvas id="canvas-matrix"></canvas>
-    <canvas class="canvas"></canvas>
-    <canvas id="pinkboard"></canvas>
-
-    <!-- NAMA -->
-    <div class="namebox" style="opacity: 1;">
-        <h1>❤️ Gesya Nanda Putri</h1>
+            <div class="tabs-panels">
+                <ul class="tabs-panel commands">
+                </ul>
+            </div>
+        </div>
     </div>
+    <canvas id="pinkboard" style="position:absolute;width:100%;height:100%;z-index:8888"></canvas>
 
-    <!-- SCRIPT -->
     <script src="js/index.js"></script>
     <script src="js/heart.js"></script>
     <script src="js/matrix.js"></script>
-
-    <script>
-        function toggleMusic() {
-            const music = document.getElementById("bgm");
-            if (music.paused) {
-                music.play();
-            } else {
-                music.pause();
-            }
-        }
-
-        // auto play setelah klik layar pertama
-        document.addEventListener("click", function () {
-            document.getElementById("bgm").play();
-        }, { once: true });
-    </script>
+    <div class="namebox" style="opacity: 0;">
+        <h1 style="font-family: 'Comic Sans MS', cursive, sans-serif;">&#10084;&#65039;Gesya Nanda Putri</h1>
+    </div>
 
 </body>
+
 </html>
