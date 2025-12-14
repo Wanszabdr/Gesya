@@ -71,20 +71,6 @@
     </div>
 
 </body>
-       <!-- Background Music -->
-    <audio id="bg-music" autoplay loop>
-        <source src="music/lagu.mp3" type="audio/mpeg">
-        Browser kamu tidak mendukung audio.
-    </audio>
-
-    <script>
-        // Fix autoplay di browser (Chrome/HP)
-        document.addEventListener("click", function () {
-            const music = document.getElementById("bg-music");
-            if (music.paused) {
-                music.play();
-            }
-        }, { once: true });
-    </script>
+      
 
 </html>
