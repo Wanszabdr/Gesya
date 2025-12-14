@@ -43,30 +43,31 @@
             margin: 0 auto;
         }
     </style>
-
 </head>
 
 <body>
 
-    <!-- AUDIO (DITAMBAHKAN, TIDAK MENGUBAH STRUKTUR) -->
-    <audio id="bgm" loop>
+    <!-- AUDIO (FIX AUTOPLAY) -->
+    <audio id="bgm" loop controls style="display:none">
         <source src="lagu-kita.mp3" type="audio/mpeg">
     </audio>
 
     <canvas id="canvas-matrix" style="position:absolute;width:100%;height:100%;z-index:8888"></canvas>
-    <!-- <canvas id="canvas" style="position:absolute;width:100%;height:100%;z-index:8888"></canvas> -->
     <canvas style="position:absolute;width:100%;height:100%;z-index:9999" class="canvas"></canvas>
+
     <div class="overlay">
         <div class="tabs">
-            <div class="tabs-labels"><span class="tabs-label">Commands</span><span class="tabs-label">Info</span><span
-                    class="tabs-label">Share</span></div>
-
+            <div class="tabs-labels">
+                <span class="tabs-label">Commands</span>
+                <span class="tabs-label">Info</span>
+                <span class="tabs-label">Share</span>
+            </div>
             <div class="tabs-panels">
-                <ul class="tabs-panel commands">
-                </ul>
+                <ul class="tabs-panel commands"></ul>
             </div>
         </div>
     </div>
+
     <canvas id="pinkboard" style="position:absolute;width:100%;height:100%;z-index:8888"></canvas>
 
     <script src="js/index.js"></script>
@@ -79,15 +80,19 @@
         </h1>
     </div>
 
-    <!-- SCRIPT MUSIK (DITAMBAHKAN SAJA) -->
+    <!-- SCRIPT MUSIK (ANTI BLOK BROWSER) -->
     <script>
-        // autoplay setelah klik pertama (aturan browser)
-        document.addEventListener("click", function () {
+        function playMusic() {
             const music = document.getElementById("bgm");
-            music.play();
-        }, { once: true });
+            music.volume = 0.7;
+            music.play().catch(() => {});
+            document.removeEventListener("click", playMusic);
+            document.removeEventListener("touchstart", playMusic);
+        }
+
+        document.addEventListener("click", playMusic);
+        document.addEventListener("touchstart", playMusic);
     </script>
 
 </body>
-
 </html>
